@@ -1,0 +1,101 @@
+<!DOCTYPE html><html><head><title>doge</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui=1"><meta charset="UTF-8"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="description" content=""><link rel="manifest" href="manifest.json"><link rel="icon" type="image/png" href="icon64.png"><link rel="apple-touch-icon" sizes="180x180" href="icon180.png"><link rel="icon" type="image/png" sizes="32x32" href="icon32.png"><link rel="icon" type="image/png" sizes="16x16" href="icon16.png"><style>html,body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  overflow:hidden;
+  font-family: Verdana;
+}
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#canvaswrapper {
+  text-align: center ;
+}
+</style><style>@font-face { font-family: "BitCell" ; src: url("fonts/BitCell.ttf") format("truetype"); }</style><style>@font-face { font-family: "Blocktopia" ; src: url("fonts/Blocktopia.ttf") format("truetype"); }</style><script>window.fonts = ["BitCell","Blocktopia"]</script></head><body class="noselect custom-cursor" oncontextmenu="return false;"><div id="canvaswrapper"></div><script type="text/javascript">var resources = {"images":[{"file":"dog0.png","version":3,"size":1193550,"properties":{"frames":1,"fps":5}},{"file":"dog1.png","version":59,"size":48799,"properties":{"frames":1,"fps":5}},{"file":"dog3.png","version":2,"size":1190340,"properties":{"frames":1,"fps":5}},{"file":"dog4.png","version":6,"size":1190340,"properties":{"frames":1,"fps":5}},{"file":"dog5.png","version":5,"size":1191725,"properties":{"frames":1,"fps":5}},{"file":"icon.png","version":5,"size":607863,"properties":{"frames":1,"fps":5}}],"assets":[],"maps":{},"sounds":[],"music":[]};
+var graphics = "M1";
+
+</script><script type="text/javascript">var orientation = 'any' ;
+var aspect = 'free' ;
+var ms_libs = [] ;
+window.skip_service_worker = true;
+window.exported_project = true;
+window.ms_use_server = false ;
+</script><script src="compiler.js"></script><script src="parser.js"></script><script src="processor.js"></script><script src="program.js"></script><script src="routine.js"></script><script src="runner.js"></script><script src="token.js"></script><script src="tokenizer.js"></script><script src="transpiler.js"></script><script src="microengine.js"></script></body><script type="text/javascript">//
+//
+// The game is started with the code below.
+// Once you have received the "started" signal (see below),
+// you can do the following:
+// 1) Inject functions or objects into the global context of the microStudio engine, example:
+//
+//   window.player.setGlobal("special_callback",function(x) { console.info(x) }) ;
+//   // Your microScript code can now call the "special_callback" function
+//
+// 2) Call microScript global functions from your JavaScript code, example:
+//
+//   window.player.call("call_me_from_javascript",[10,1000]) ;
+//   // arguments to the function call are provided as an array
+//
+// 3) Run a microScript code snippet from your JavaScript code, example:
+//
+//   window.player.exec("player.position_x = 50",function(result) { console.log(result) ; }) ;
+//
+
+window.addEventListener("load",function() {
+  window.player = new Player(function(event) {
+    if (event.name == "started") {
+      // signal that the game is started
+    }
+    else if (event.name == "log") {
+      // console.info(event.data) ;
+    }
+  }) ;
+  document.body.focus() ;
+}) ;
+
+</script><script id="code" type="text/x-microscript">
+
+
+function()
+init = function()
+  screen.setFont("Blocktopia")
+  dogp = storage.get("dogy")
+  dogc = 0
+end
+
+update = function()
+  if keyboard.J then dogp += 1 end
+end
+
+draw = function()
+  ran = random.nextInt(80)
+  ran2 = random.nextInt(2)
+  if ran2 == 0 then
+  screen.drawSprite("dog3",random.nextInt(screen.width*2)-screen.width,random.nextInt(screen.height*2)-screen.height,random.nextInt(45))
+  else
+    screen.drawSprite("dog5",random.nextInt(screen.width*2)-screen.width,random.nextInt(screen.height*2)-screen.height,random.nextInt(45))
+  end
+  if mouse.left then
+    for t in touch.touches 
+    screen.drawSprite("dog1",t.x,t.y,20)
+    dogp += 0.05
+    end
+    screen.drawSprite("dog1",mouse.x,mouse.y,20)
+  end
+  dogc += 0.5
+  
+  screen.fillRect(0,0-screen.height/2+10,screen.width,20,"rgb(8,0,0)")
+  screen.drawText("Dog points: "+ceil(dogp) +" Dogs made: "+round(dogc/2),0,0-screen.height/2+10,7,"rgb(36,36,36)")
+end
+
+every 1 second do
+ storage.set("dogy",dogp)
+  end
+end()
+
+
+</script></html>
