@@ -62,16 +62,55 @@ window.addEventListener("load",function() {
 
 function()
 init = function()
+  x = 0
+  y = 0
+  sideX = 0
+  sideY = 0
+  lastMouseX = 0
+  lastMouseY = 0
+  firstTap = true
+  kl = false
+  cooldown = 0
 end
 
 update = function()
-  sideX = 0-screen.width/2-75
+
+    sideX = 0-screen.width/2-75
   sideY = 0-screen.height/2-75
   sw = screen.width/2
   sh = screen.height/2
+  if (mouse.left) then
+    if (firstTap) then 
+      print("e")
+      lastMouseX = mouse.x
+      lastMouseY = mouse.y
+    end
+    firstTap = false
+    x += mouse.x - lastMouseX
+    y += mouse.y - lastMouseY
+    else
+      firstTap = true
+  end
+  if (kl==false) then
   
   x -= 0.5
   y -= 0.5
+  end
+  if (keyboard.K) then
+    if (cooldown <= 0) then
+      cooldown = 16
+      if (kl == true) then
+        kl = false
+        else 
+          kl = true
+        end
+    end
+  end
+    lastMouseX = mouse.x
+  lastMouseY = mouse.y
+  if (cooldown > 0) then
+    cooldown = cooldown - 0.1
+  end
 end
 
 draw = function()
@@ -85,7 +124,10 @@ draw = function()
       end
     end
   end
+  newX = mouse.y + ( x % 45 ) + ( o * 45 )
+  newY = mouse.y + ( y % 45 ) + ( i * 45 )
   screen.drawSprite("plain",newX,newY,20)
+  screen.drawSprite
 end
 end()
 
