@@ -1,19 +1,20 @@
-
+/* Reset basic styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
+/* Body styling */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
     display: flex;
     min-height: 100vh;
+    position: relative;
 }
 
-
+/* Fancy sidebar styling */
 .fancy-sidebar {
     width: 250px;
     background: linear-gradient(135deg, #ff6f61, #ff9966);
@@ -24,7 +25,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 100vh; /* Full height sidebar */
+    transition: width 0.3s ease;
 }
 
 .sidebar-title {
@@ -34,7 +36,7 @@ body {
     text-align: center;
 }
 
-/* Sidebar buttons */
+
 .sidebar-buttons {
     display: flex;
     flex-direction: column;
@@ -67,8 +69,36 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Main content styling */
 .main-content {
     flex-grow: 1;
     padding: 40px;
+    transition: margin-left 0.3s ease;
+}
+
+
+.collapse-button {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    padding: 10px 15px;
+    font-size: 24px;
+    background-color: #ff6f61;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: left 0.3s ease;
+}
+
+.fancy-sidebar.collapsed {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.main-content.collapsed {
+    margin-left: 0;
 }
