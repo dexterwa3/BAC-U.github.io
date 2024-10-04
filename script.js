@@ -15,4 +15,5 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         console.error("One or more elements were not found!");
     }
+    //js
 });
