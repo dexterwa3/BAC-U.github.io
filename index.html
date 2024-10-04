@@ -24,30 +24,7 @@
         <h2>Oh god i love bagels</h2>
         <p>so uh how you doing?</p>
     </div>
-    <script>
-        //AI wrote this stupid ah code, javascript is a horrible language for horrible blood sucking vampires 
-        // Ensure the DOM is fully loaded before accessing elements
-document.addEventListener('DOMContentLoaded', function() {
-    const toggleBtn = document.getElementById('toggle-btn');
-    const sidebar = document.getElementById('sidebar');
-    const mainContent = document.querySelector('.main-content');
-
-    toggleBtn.addEventListener('click', function() {
-        // Toggle the collapsed class for both sidebar and main content
-        sidebar.classList.toggle('collapsed');
-        mainContent.classList.toggle('collapsed');
-
-        // Adjust the toggle button position when the sidebar is collapsed
-        if (sidebar.classList.contains('collapsed')) {
-            this.style.left = '10px'; // Button stays at left side
-        } else {
-            this.style.left = '260px'; // Move it to the right of the sidebar
-        }
-    });
-});
-
-
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
 
