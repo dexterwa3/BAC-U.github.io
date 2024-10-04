@@ -1,11 +1,11 @@
-/* Reset basic styles */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body styling */
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
@@ -14,7 +14,7 @@ body {
     position: relative;
 }
 
-/* Fancy sidebar styling */
+
 .fancy-sidebar {
     width: 250px;
     background: linear-gradient(135deg, #ff6f61, #ff9966);
@@ -25,7 +25,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh; /* Full height sidebar */
+    height: 100vh; 
     transition: width 0.3s ease;
 }
 
@@ -54,7 +54,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Full width buttons */
+    width: 100%; 
     text-align: center;
 }
 
