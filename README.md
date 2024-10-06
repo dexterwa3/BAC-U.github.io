@@ -1,3 +1,1 @@
-# BAC-U.github.io
-umm?
-https://www.youtube.com/
+It only cost me open-sourcing all my code for free web hosting...
